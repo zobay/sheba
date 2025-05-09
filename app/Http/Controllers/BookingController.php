@@ -28,4 +28,16 @@ class BookingController extends Controller
             'booking' => $booking,
         ], 201);
     }
+
+    public function status($id)
+    {
+        $booking = Booking::find($id);
+        if (!$booking) {
+            return response()->json(['message' => 'Booking not found'], 404);
+        }
+        return response()->json([
+            'booking_id' => $booking->id,
+            'status' => $booking->status,
+        ]);
+    }
 }
