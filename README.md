@@ -1,7 +1,7 @@
 # Software Engineer Interview Assignment — Sheba Platform Ltd.
 
 
-### Core Features
+### Core Features - Using Laravel 12
  - Service Listing API ((https://github.com/zobay/sheba/pull/1)): A paginated API that returns a list of available services with name, category, price, and description.
  - Service Booking API (https://github.com/zobay/sheba/pull/2) : Customers can book a service with their name, phone number, and service ID.
  - Booking Status API (https://github.com/zobay/sheba/pull/3) : Customers can check the status of their booking using a unique booking ID.
