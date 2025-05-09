@@ -10,9 +10,10 @@ class BookingController extends Controller
 {
     public function store(StoreBookingRequest $request)
     {
+
         $validated = $request->validated();
 
-        $user = User::create([
+        $user = User::firstOrCreate([
             'name' => $validated['name'],
             'phone' => $validated['phone'],
         ]);
