@@ -10,9 +10,10 @@ class BookingController extends Controller
 {
     public function store(StoreBookingRequest $request)
     {
+
         $validated = $request->validated();
 
-        $user = User::create([
+        $user = User::firstOrCreate([
             'name' => $validated['name'],
             'phone' => $validated['phone'],
         ]);
@@ -27,5 +28,17 @@ class BookingController extends Controller
             'message' => 'Booking successful',
             'booking' => $booking,
         ], 201);
+    }
+
+    public function status($id)
+    {
+        $booking = Booking::find($id);
+        if (!$booking) {
+            return response()->json(['message' => 'Booking not found'], 404);
+        }
+        return response()->json([
+            'booking_id' => $booking->id,
+            'status' => $booking->status,
+        ]);
     }
 }

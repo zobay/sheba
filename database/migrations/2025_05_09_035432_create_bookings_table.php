@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignIdFor(User::class);
             $table->string('phone');
             $table->foreignIdFor(Service::class);
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

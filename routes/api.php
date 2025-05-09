@@ -6,3 +6,4 @@ use App\Http\Controllers\BookingController;
 
 Route::get('/services', [ServiceController::class, 'index']);
 Route::post('/bookings', [BookingController::class, 'store']);
+Route::get('/bookings/{id}/status', [BookingController::class, 'status']);

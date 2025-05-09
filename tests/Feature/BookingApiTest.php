@@ -44,4 +44,28 @@ class BookingApiTest extends TestCase
             'service_id' => $service->id,
         ]);
     }
+
+    public function test_customer_can_check_booking_status()
+    {
+        $service = Service::create([
+            'name' => 'Test Service',
+            'description' => 'Test Description',
+            'price' => 100.00,
+        ]);
+
+        $payload = [
+            'name' => 'Jane Doe',
+            'phone' => '01800000000',
+            'service_id' => $service->id,
+        ];
+        $response = $this->postJson('/api/bookings', $payload);
+        $bookingId = $response->json('booking.id');
+
+        $statusResponse = $this->getJson("/api/bookings/{$bookingId}/status");
+        $statusResponse->assertStatus(200)
+            ->assertJson([
+                'booking_id' => $bookingId,
+                'status' => 'pending',
+            ]);
+    }
 }

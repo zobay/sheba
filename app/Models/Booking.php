@@ -10,7 +10,8 @@ class Booking extends Model
     protected $fillable = [
         'user_id',
         'phone',
-        'service_id'
+        'service_id',
+        'status',
     ];
 
     public function user(): BelongsTo
