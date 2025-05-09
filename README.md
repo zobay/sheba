@@ -25,6 +25,33 @@ Follow these steps to set up the project locally:
 git clone https://github.com/your-username/your-laravel-project.git
 cd your-laravel-project
 ```
+
+### Install PHP Dependencies
+```php
+composer install
+```
+
+### Copy and Configure Environment File
+```php
+cp .env.example .env
+```
+
+### Generate Application Key
+```php
+php artisan key:generate
+```
+
+### Run Migrations
+```php
+php artisan migrate
+```
+
+### Start the Development Server
+```php
+php artisan serve
+```
+
+
 ### Api Documentation
 https://documenter.getpostman.com/view/4301061/2sB2j989TT
 
